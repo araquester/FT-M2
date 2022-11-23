@@ -13,7 +13,13 @@
     }
 
   }
+  .headerImg{
+    display: flex;
+    border-radius: 20px;
+    //la margen con respecto al menu
+    margin-top: 7px;
 
+}
   .music-images {
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +64,11 @@
       }
 
       .btn {
+        .button(@btn-bg-color,fit-content,fit-content,1.5em,@wild-sand);
+        padding: 0.6em;
+        border-radius: 5px;
       }
+      
     }
 
     .actual-img {
