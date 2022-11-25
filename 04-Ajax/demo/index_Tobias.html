@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset=UTF-8>
+  <title>Demo AJAX</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head><body>
+  <button id="boton">AJAX GET!</button>
+  <button id="boton2">AJAX POST!</button>
+  <div id='respuesta'>
+  </div>
+  <script type="text/javascript">
+  let index = 1
+  // $("#boton").click(function () {
+  //   $.get("https://jsonplaceholder.typicode.com/photos/" + index, function (data) {
+  //     let title = document.createElement("h2")
+  //     title.textContent = data.title
+  //     let img = document.createElement("img")
+  //     img.src = data.url
+  //     $("#respuesta").append(title)
+  //     $("#respuesta").append(img)
+  //     index++
+  //   })
+  // })   document.querySelector("#boton").addEventListener("click",function () {
+    let title = document.createElement("h2")
+    let img = document.createElement("img")
+    fetch("https://jsonplaceholder.typicode.com/photos/" + index)
+      .then(r => r.json())
+      .then(data => {
+        title.textContent = data.title
+        img.src = data.url
+      })
+      document.querySelector("#respuesta").append(title)
+      document.querySelector("#respuesta").append(img)
+      index++
+   })   $("#boton2").click(function () {
+    $.post("https://jsonplaceholder.typicode.com/posts", {
+      title: "Henry 33c",
+      body: "El post de la cohorte 33c se la banca",
+      userId: 7
+    }, function (data) {
+      console.log(data)
+    })
+   })
+  </script>
+</body>
+</html>

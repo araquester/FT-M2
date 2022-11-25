@@ -8,19 +8,28 @@
 </head>
 
 <body>
+  <button class='boton'>AJAX GET!</button>
   <div id='respuesta'>
   </div>
-  <button class='boton'>AJAX!</button>
+  
   <script type="text/javascript">
-    var index = 1;
+    let index = 1;
     $('.boton').click(function () {
-      // GET AJAX
+      // GET AJAX //con get tomo la base de datos la cual es jsonplaceholder
       $.get("https://jsonplaceholder.typicode.com/photos/" + index, function (data) {
         // vanilla javascript
-        var img = document.createElement('img');
-        img.src = dataAca.url;
-        var title = document.createElement('h3');
-        title.textContent = dataAca.title;
+        // creo el elemento que deseo agregar en este caso es h2
+        let title = document.createElement('h2');
+        // a ese elemento le pongo la informacion que tiene el objeto
+        title.textContent = data.title
+        // creo el elemento que sería una imagen
+        let img = document.createElement('img')
+        // el source de esa imagen es la url de la imagen
+        img.src = data.url
+        // Aqui le cambie el tamaño que venía de la direccion original
+        img.width = "300"
+        img.height = "300"
+        // agrego al div que tiene como id respuesta la informacion que conseguí
         $('#respuesta').append(img);
         $('#respuesta').append(title);
         index++;
