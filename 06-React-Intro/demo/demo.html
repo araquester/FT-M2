@@ -12,11 +12,14 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
 
-  const element = <h1>Hello, world!</h1>;
+// ******************************** EJEMPLO BASICO  *****************************************
+  // const element = <h1>Hello, world, el mejor cohorte es 33C!</h1>;
 
-  
+// ******************************** EJEMPLO MEDIO   *****************************************
   // function formatName(user) {
-  //   return user.firstName + ' ' + user.lastName;
+  //   //return user.firstName + ' ' + user.lastName;
+  //   // Tambien se puede usar esta sintaxis
+  //   return `${user.firstName} ${user.lastName}`
   // };
 
   // const user = {
@@ -30,44 +33,57 @@
   //   </h1>
   // );
 
-  // const personas = [
-  //   {
-  //     name: 'Toni',
-  //     lastname: 'Tralice',
-  //     id: 0
-  //   },
-  //   {
-  //     name: 'Fran',
-  //     lastname: 'Etcheverri',
-  //     id: 1
-  //   },
-  //   {
-  //     name: 'Agustin',
-  //     lastname: 'Amani',
-  //     id: 2
-  //   }
-  // ]
+  const personas = [
+    {
+      name: 'Toni',
+      lastname: 'Tralice',
+      id: 0
+    },
+    {
+      name: 'Fran',
+      lastname: 'Etcheverri',
+      id: 1
+    },
+    {
+      name: 'Agustin',
+      lastname: 'Amani',
+      id: 2
+    }
+  ]
 
-  // function Persona(props) {
-  //   return (
-  //     <h1>
-  //       Hola, {props.personaNombre} {props.personaApellido}!
-  //     </h1>
-  //   )
-  // }
+  // POR LA MAYUSCULA YA SABEMOS QUE ES UNA CLASE
+  function Persona(props) {
+    return (
+      <h1>
+        Hola, {props.personaNombre} {props.personaApellido}!
+      </h1>
+    )
+  }
 
-  // function Container() {
-  //   return (
-  //     <div>
-  //      {
-  //       personas.map(p => <Persona personaNombre={p.name} personaApellido={p.lastname} key={p.id} />)
-  //      } 
-  //     </div>
-  //   )
-  // }
+  function Container() {
+    return (
+      <div>
+       {
+        personas.map(p => <Persona personaNombre={p.name} personaApellido={p.lastname} key={p.id} />)
+       } 
+      </div>
+    )
+  }
 
+  // ReactDOM.render(
+  //   element,
+  //   document.getElementById('app')
+  // );
+
+// SE CAMBIA ELEMENT POR PERSONA YA QUE LO QU ESTAMOS CREANDO ES PERSONA EN LA FUNCION
+  // ReactDOM.render(
+  //   <Persona personaNombre={"Jimena"} personaApellido={"Medina"} />,
+  //   document.getElementById('app')
+  // );
+
+// SE UTILIZA ES CONTAINER QUE RENDERIZA A LAS PERSONAS
   ReactDOM.render(
-    element,
+    <Container />,
     document.getElementById('app')
   );
   </script>
